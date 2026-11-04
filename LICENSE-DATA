@@ -1,0 +1,19 @@
+Creative Commons Attribution 4.0 International
+
+By exercising the Licensed Rights, You accept and agree to be bound by the
+terms and conditions of the Creative Commons Attribution 4.0 International
+Public License.
+
+License summary: You may share and adapt the licensed material for any purpose,
+even commercially, so long as appropriate attribution is given.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/
+
+Scope in this repository:
+- `data/`
+- `docs/`
+
+Exclusions:
+- third-party trademarks, logos, and repository names remain property of their
+  respective owners
+- external source repositories referenced by URL are not relicensed by this file

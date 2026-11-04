@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- 渐变定义 -->
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E30" />
+      <stop offset="100%" stop-color="#243B55" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. 背景底板 (圆角应用图标风格) -->
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad)" />
+
+  <!-- 2. AI 闪耀星芒 (代表 AI 生成) -->
+  <g fill="#A855F7">
+    <!-- 右上角金色大星 -->
+    <path d="M 370 120 Q 400 120 400 90 Q 400 120 430 120 Q 400 120 400 150 Q 400 120 370 120 Z" fill="#FBBF24" />
+    <!-- 左侧青色中星 -->
+    <path d="M 80 180 Q 100 180 100 160 Q 100 180 120 180 Q 100 180 100 200 Q 100 180 80 180 Z" fill="#38BDF8" />
+    <!-- 左下角紫色小星 -->
+    <path d="M 120 380 Q 135 380 135 365 Q 135 380 150 380 Q 135 380 135 395 Q 135 380 120 380 Z" fill="#A855F7" />
+  </g>
+
+  <!-- 3. 数据集结构 (代表 Dataset) -->
+  <g>
+    <!-- 数据库底层 -->
+    <path d="M 136 380 v 40 c 0 22 53.7 40 120 40 s 120 -18 120 -40 v -40" fill="#0284C7" stroke="#38BDF8" stroke-width="6" />
+    <path d="M 136 380 c 0 22 53.7 40 120 40 s 120 -18 120 -40" fill="none" stroke="#38BDF8" stroke-width="6" opacity="0.4" />
+    
+    <!-- 数据库中层 -->
+    <path d="M 136 330 v 50 c 0 22 53.7 40 120 40 s 120 -18 120 -40 v -50" fill="#0369A1" stroke="#38BDF8" stroke-width="6" />
+    <path d="M 136 330 c 0 22 53.7 40 120 40 s 120 -18 120 -40" fill="none" stroke="#38BDF8" stroke-width="6" opacity="0.4" />
+    
+    <!-- 数据库顶层 -->
+    <path d="M 136 280 v 50 c 0 22 53.7 40 120 40 s 120 -18 120 -40 v -50" fill="#075985" stroke="#38BDF8" stroke-width="6" />
+    <!-- 数据库顶部切面 -->
+    <ellipse cx="256" cy="280" rx="120" ry="40" fill="#1E293B" stroke="#38BDF8" stroke-width="8" />
+  </g>
+
+  <!-- 4. Android 核心 (代表 Android 应用，正好从数据集中浮现) -->
+  <g>
+    <!-- 天线 -->
+    <line x1="210" y1="180" x2="185" y2="135" stroke="#3DDC84" stroke-width="12" stroke-linecap="round" />
+    <line x1="302" y1="180" x2="327" y2="135" stroke="#3DDC84" stroke-width="12" stroke-linecap="round" />
+    
+    <!-- 安卓机器人头部半圆 -->
+    <path d="M 166 280 A 90 90 0 0 1 346 280 Z" fill="#3DDC84" />
+    
+    <!-- 眼睛 -->
+    <circle cx="220" cy="225" r="10" fill="#141E30" />
+    <circle cx="292" cy="225" r="10" fill="#141E30" />
+  </g>
+
+  <!-- 5. 放大镜 (代表 搜罗/检索) -->
+  <g>
+    <!-- 放大镜外圈 -->
+    <circle cx="360" cy="330" r="50" fill="rgba(255,255,255,0.05)" stroke="#F8FAFC" stroke-width="10" />
+    <!-- 放大镜把手 -->
+    <line x1="395" y1="365" x2="445" y2="415" stroke="#F8FAFC" stroke-width="14" stroke-linecap="round" />
+    <!-- 镜片反光高光细节 -->
+    <path d="M 330 300 A 35 35 0 0 1 370 300" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+  </g>
+
+</svg>

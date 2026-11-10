@@ -97,6 +97,66 @@ python3 scripts/validate_catalog.py data/curated/apps.csv
 python3 scripts/summary.py data/curated/apps.csv
 ```
 
+## Automated GitHub Discovery
+
+GitHub discovery is automated, but verification remains manual. Set a GitHub
+token in the shell before searching so the API allows the authenticated rate
+limit:
+
+```bash
+export GITHUB_TOKEN="github_pat_your_token_here"
+python3 scripts/search_github.py --output data/raw/github_candidates.csv
+```
+
+The script combines GitHub Repository Search and Code Search. It now:
+
+- runs a broader set of configurable vibe-coding discovery queries across README text, descriptions, and topics
+- preserves all matched discovery queries for the same repository
+- fetches README content and stores a short evidence snippet plus a source URL
+- verifies Android structure for Native Android, Flutter, and React Native repositories
+- flags likely tools, tutorials, templates, libraries, and unrelated repositories for exclusion or manual review
+
+Code Search still works as a supplementary discovery signal and still benefits
+from `GITHUB_TOKEN`. Discovery matches are not treated as confirmed dataset
+entries on their own: the CSV records README evidence, Android validation, and
+review status so candidates remain auditable.
+
+To test a query without writing a file:
+
+```bash
+python3 scripts/search_github.py --query 'android "vibe coded" in:readme' --dry-run
+```
+
+Useful options:
+
+```bash
+python3 scripts/search_github.py --max-pages 10 --per-query 100
+python3 scripts/search_github.py --no-code-search
+python3 scripts/search_github.py --code-query 'filename:CLAUDE.md android'
+python3 scripts/search_github.py --raw-json-dir data/raw/github_api
+```
+
+Important output fields include:
+
+- `discovery_queries`: all queries that matched a repository
+- `vibe_evidence_status`, `vibe_evidence_text`, `vibe_evidence_url`: extracted README evidence
+- `android_framework`, `android_validation_status`, `android_evidence`: structural Android checks
+- `project_type`, `review_status`, `exclusion_reason`: lightweight filtering decisions
+
+Classification is intentionally conservative. Generic mentions of Claude Code,
+Cursor, or Copilot do not count as vibe-coding evidence by themselves, and
+ambiguous repositories stay in `manual_review` instead of being silently
+discarded.
+
+When `--raw-json-dir` is set, the script also saves the raw GitHub API items for
+each query as JSON. This makes it easier to audit search quality, reprocess
+results, or compare Repository Search against Code Search without re-running the
+API calls.
+
+Create a fine-grained GitHub token with public repository read access. Keep the
+token in the shell environment or a local secret manager; do not commit it to
+the repository.
+
 ## Quality Principles
 
 - conservative verification

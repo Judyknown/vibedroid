@@ -11,6 +11,12 @@ A row can be marked `verified` only if both conditions are met:
 
 Rows that mention AI as a product feature rather than as a development method should not be upgraded to `verified` on that basis alone.
 
+Automated discovery signals do not prove inclusion. Repository Search matches,
+Code Search matches for `AGENTS.md` or `CLAUDE.md`, and Android project files
+such as `AndroidManifest.xml` only create review candidates. A reviewer must
+still inspect first-party repository evidence and record the evidence in the
+curated row.
+
 ## Columns
 
 - `id`: stable row identifier
